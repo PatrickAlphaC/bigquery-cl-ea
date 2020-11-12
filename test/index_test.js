@@ -1,15 +1,16 @@
 const assert = require('chai').assert
 const createRequest = require('../index.js').createRequest
 
+const sampleQuery = "SELECT * FROM`blockchain-etl-internal.ethereum_aave.LendingPool_event_FlashLoan_history` order by date(block_timestamp) desc limit 1"
+const sampleRow = 0
+const sampleColumn = 'block_number'
 describe('createRequest', () => {
   const jobID = '1'
 
   context('successful calls', () => {
     const requests = [
-      { name: 'id not supplied', testData: { data: { base: 'ETH', quote: 'USD' } } },
-      { name: 'base/quote', testData: { id: jobID, data: { base: 'ETH', quote: 'USD' } } },
-      { name: 'from/to', testData: { id: jobID, data: { from: 'ETH', to: 'USD' } } },
-      { name: 'coin/market', testData: { id: jobID, data: { coin: 'ETH', market: 'USD' } } }
+      { name: 'id not supplied', testData: { data: { query: sampleQuery, row: sampleRow, column: sampleColumn } } },
+      { name: 'query/row/column', testData: { id: jobID, data: { query: sampleQuery, row: sampleRow, column: sampleColumn } } },
     ]
 
     requests.forEach(req => {
@@ -30,10 +31,8 @@ describe('createRequest', () => {
     const requests = [
       { name: 'empty body', testData: {} },
       { name: 'empty data', testData: { data: {} } },
-      { name: 'base not supplied', testData: { id: jobID, data: { quote: 'USD' } } },
-      { name: 'quote not supplied', testData: { id: jobID, data: { base: 'ETH' } } },
-      { name: 'unknown base', testData: { id: jobID, data: { base: 'not_real', quote: 'USD' } } },
-      { name: 'unknown quote', testData: { id: jobID, data: { base: 'ETH', quote: 'not_real' } } }
+      { name: 'row not supplied', testData: { id: jobID, data: { query: sampleQuery, column: sampleColumn } } },
+      { name: 'column not supplied', testData: { id: jobID, data: { query: sampleQuery, row: sampleRow } } },
     ]
 
     requests.forEach(req => {
