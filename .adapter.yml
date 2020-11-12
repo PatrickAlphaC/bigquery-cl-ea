@@ -1,14 +1,13 @@
-name:
-description:
-node_identifier: bigquery-cl-ea
+name: Example
+description: An example adapter that does something.
+node_identifier: example
 platforms:
   - Docker
   - AWS Lambda
   - GCP Functions
 data_sources:
-  - name: GoogleBigQuery
-    url: https://cloud.google.com/
+  - name: Example
+    url: https://example.com
 parameters:
-  - query
-  - row
-  - column
+  - base
+  - quote
