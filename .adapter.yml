@@ -1,14 +1,15 @@
-name: Google BigQuery
-description: Query anything on Google Big Query
+
+name: Google BigQuery EA
+description: Get any data from Google BigQuery
 node_identifier: bigquery-cl-ea
 platforms:
   - Docker
   - AWS Lambda
   - GCP Functions
 data_sources:
-  - name: Google's Big Query
+  - name: GoogleBigQuery
     url: https://cloud.google.com/
 parameters:
   - query
-  - column
   - row
+  - column
