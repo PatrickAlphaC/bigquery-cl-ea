@@ -1,13 +1,14 @@
-name: Example
-description: An example adapter that does something.
-node_identifier: example
+name: Google BigQuery Chainlink EA
+description: Get any data from Google BigQuery
+node_identifier: bigquery-cl-ea
 platforms:
   - Docker
   - AWS Lambda
   - GCP Functions
 data_sources:
-  - name: Example
-    url: https://example.com
+  - name: Google BigQuery
+    url: https://cloud.google.com/
 parameters:
-  - base
-  - quote
+  - query
+  - row
+  - column
