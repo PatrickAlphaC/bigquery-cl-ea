@@ -1,6 +1,5 @@
-
 name: Google BigQuery EA
-description: Get any data from Google BigQuery
+description:
 node_identifier: bigquery-cl-ea
 platforms:
   - Docker
