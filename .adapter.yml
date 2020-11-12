@@ -1,4 +1,4 @@
-name: Google BigQuery EA
+name:
 description:
 node_identifier: bigquery-cl-ea
 platforms:
